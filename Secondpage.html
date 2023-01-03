@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    
+    <link rel="stylesheet" href="styles.css">
+          </head>
+<body>
+  <h1 id="p" style="text-align: center; margin-top:300px"></h1>
+   
+    
+    
+    <script>
+var urlParams = new URLSearchParams(window.location.search);
+
+document.getElementById("p").innerHTML= "Congrats you purchase "+urlParams.get('Products')+" From Category "+urlParams.get('Category')
+    </script>
+    
+</body>
+
+
+
+</html>

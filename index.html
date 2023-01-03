@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="styles.css">
+       <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+
+          </head>
+<body>
+    <!-- Just an image --> <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <div  class="navlogo">
+  <a class="navbar-brand" href="#">    <img src="logo.jpg" height="40" class="d-inline-block align-top" alt="">
+     <label style="font-size: 30px;font-weight: 700;color: aliceblue;font-family:'Lobster', cursive; "> Electronics</label>
+    </a>
+</div>
+</nav>
+    
+    <h1 style="text-align: center; font-family: 'Lobster', cursive;
+">Online Electronic Store</h1>
+    <div  class="col-4 m-auto">
+        
+        <form id="myForm" action="Secondpage.html" method="GET" onsubmit="return validateForm()" style="margin-left: 15px;">
+    <b>    Purchaser Name</b>  
+            <input id="name" type="text" placeholder="purchaser name"
+                   type="text" class="form-control   m-auto" id="formGroupExampleInput" style="width: 300px;">
+            <br>
+        <b>  Address</b>
+            <input id="address" type="text" placeholder="Address"
+                   type="text" class="form-control m-auto" id="formGroupExampleInput"  style="width: 300px;">
+            <br>
+        <b>      Phone Number</b>  
+            <input id="tel" type="tel" placeholder="Telephone Number" type="text" class="form-control m-auto" id="formGroupExampleInput"  style="width: 300px;" >
+            <br>
+        <b>    Email Address</b>  
+            <input id="email" type="email" class="form-control m-auto" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  style="width: 300px;">
+        <br>
+            
+            
+            
+           <b> Categories</b>
+            <br>
+            
+         <select onload="GetSelectedTextValue()" name="Category" id="Category" onchange="GetSelectedTextValue()"
+                 class="btn btn-info dropdown-toggle m-auto"  data-toggle="dropdown " aria-haspopup="true" aria-expanded="false">
+             
+    <option value="Laptop">Laptop</option>
+    <option value="Mobile">Mobile</option>
+    <option value="TV" selected>TV</option>
+    <option value="HDD">External Hard Disk</option>
+         </select>
+          
+            
+            <br>
+            
+            
+            
+            <b>Products</b>
+             <br>
+            
+         <select name="Products" id="Product" class="btn btn-info dropdown-toggle mb-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             
+
+                <option >Samsung </option>
+                <option >HAIER</option>
+                <option >LG</option>
+                <option >ATA</option>
+
+             
+         </select>
+            <br>
+        <input type="submit" value="Next" class="btn btn-primary btn-lg btn-block  haha m-auto"  style="width: 200px; " 
+               >
+
+        </form>
+    
+    
+    
+        
+    
+    
+    </div>
+    <script>
+//        function ValidateEmail(email) 
+//{
+// if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+//  {
+//    return 1;
+//  }
+//    alert("You have entered an invalid email address!")
+//    return 0;
+//}
+
+        function validateForm() {
+  var name = document.forms["myForm"]["name"].value;
+  var address = document.forms["myForm"]["address"].value;
+  var telephone = document.forms["myForm"]["tel"].value;
+  var email = document.forms["myForm"]["email"].value;
+//  var validateemail = ValidateEmail(email)
+//  if(validateemail ==0){
+//        alert("You have entered an invalid email address!")
+//        return false;
+//     }
+  if (name == ""||address == ""||telephone == ""||email == "") {
+    alert("All fields must be filled");
+    return false;
+  }
+}
+        function GetSelectedTextValue() {
+            document.getElementById("Product").options.length = 0;
+
+        var e = document.getElementById("Category");
+        var strUser = e.options[e.selectedIndex].value;
+        /////
+        var ProductArr;
+        if (strUser =="TV"){
+ ProductArr = ["Samsung", "HAIER", "LG","ATA"];
+            }else if (strUser =="Laptop"){
+ ProductArr = ["Samsung Notebook7", "Apple macbook pro", "Lenovo ideapad 320","Dell inspiron"];
+            }else if (strUser =="Mobile"){
+ ProductArr = ["Samsung galaxy Note 10", "Apple iphone 11 PRO", "OPPO F11","Huawei P30 PRO"];
+                      }else if (strUser =="HDD"){
+ ProductArr = ["Western Digital (WD)", "Toshiba", "Seagate","Failly"];
+            }
+        /////
+        var x = document.getElementById("Product");
+        
+    ProductArr.forEach(element => myFunction(element, x) );
+    
+     
+        
+        }
+        function myFunction(e, x) {
+            var option = document.createElement("option");
+          option.text = e;
+            x.add(option);
+        }
+    </script>
+    
+    
+    
+    
+    
+    
+    	
+	  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+
+
+</html>
